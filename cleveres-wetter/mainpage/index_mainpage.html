@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" />
+    <link rel="stylesheet" href="mystyle_mainpage.css" />
+    <title>Wetter_main</title>
+</head>
+
+<body>
+    <div id="pic" class="tabOne">
+        <header>
+            <div class="helloheader">
+                <h1>Cleveres Wetter</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <button class="buttonRegistr" role="button"
+                            onclick="location.href='/CleveresWetter/registration/index_registration.html'">Sich
+                            anmelden</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="tabsection">
+            <div class="tab">
+                <button class="tablinks" onclick="openPart(event, 'TodaysWeather')" id="defaultOpen">Dreitägige
+                    Wettervorhersage</button>
+                <button class="tablinks" onclick="openPart(event, 'Statistic')">Statistik</button>
+                <button class="tablinks" onclick="openPart(event, 'WhatToDo')">Was soll ich machen?</button>
+                <button class="tablinks" onclick="openPart(event, 'SendInfo')">Informationen senden</button>
+            </div>
+            <div id="TodaysWeather" class="tabcontent">
+                <div class="weatherimg">
+                    <img src="../pictures/weather.jpg" alt="">
+                </div>
+                <section class="weatherfield">
+                    <div class="weathercontent">
+                        <div class="weathertabl">
+                            <div class="tableline">
+                                <table class="weather-forecast-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th class="theadtable">Einheiten</th>
+                                            <th class="date theadtable">1 Tag</th>
+                                            <th class="date theadtable">2 Tag</th>
+                                            <th class="date theadtable">3 Tag</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div><img class="iconsvg"
+                                                        src="../svg_icons/temperature-three-quarters-solid.svg" alt="">
+                                                </div>Maximale <br> Temperatur
+                                            </td>
+                                            <td>&#8451</td>
+                                            <td class="max-temperature"></td>
+                                            <td class="max-temperature"></td>
+                                            <td class="max-temperature"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div><img class="iconsvg" src="../svg_icons/temperature-empty-solid.svg"
+                                                        alt="">
+                                                </div>Minimale <br> Temperatur
+                                            </td>
+                                            <td>&#8451</td>
+                                            <td class="min-temperature"></td>
+                                            <td class="min-temperature"></td>
+                                            <td class="min-temperature"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div><img class="iconsvg" src="../svg_icons/cloud-rain-solid.svg"
+                                                        alt="">
+                                                </div>Niederschlag
+                                            </td>
+                                            <td>ml</td>
+                                            <td class="precipitation"></td>
+                                            <td class="precipitation"></td>
+                                            <td class="precipitation"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div><img class="iconsvg" src="../svg_icons/wind-solid.svg" alt="">
+                                                </div>Wind
+                                            </td>
+                                            <td>km/h</td>
+                                            <td class="windSpeed"></td>
+                                            <td class="windSpeed"></td>
+                                            <td class="windSpeed"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="phototable">
+                            <div class="photosummer">
+                                <img src="../pictures/summer.jpg" />
+                            </div>
+                            <div class="photopathway">
+                                <img src="../pictures/pathway-970705_1280.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="city-select">
+                        <h3>Wählen Sie Ihre Stadt aus</h3>
+                        <select id="city">
+                            <option class="cityoption" value="Hamburg">Hamburg</option>
+                            <option class="cityoption" value="Bremen">Bremen</option>
+                            <option class="cityoption" value="Berlin">Berlin</option>
+                            <option class="cityoption" value="Lübeck">Lübeck</option>
+                            <option class="cityoption" value="Kiel">Kiel</option>
+                            <option class="cityoption" value="Schwerin">Schwerin</option>
+                        </select>
+                        <button class="btnweather" onclick="fetchForecast()">Informationen bekommen</button>
+                    </div>
+                </section>
+            </div>
+            <div id="Statistic" class="tabcontent">
+                <div class="statisticimg">
+                    <img src="../pictures/statistic.jpg" alt="">
+                </div>
+                <section class="statisticfield">
+                    <h2>Hier finden Sie statistische Klimadaten rund um die Welt</h2>
+                    <div class="statisticcircle">
+                        <div class="catascircle tornadocircle"
+                            onclick="window.open('https://www.nhc.noaa.gov/archive/2023/', '_blank')">
+                            <div class="circlestat"><img class="iconsvg" src="../svg_icons/tornado-solid.svg" alt="">
+                            </div>
+                            <div class="circlestattwo"></div>
+                        </div>
+                        <div class="catascircle tempcircle"
+                            onclick="window.open('https://climatereanalyzer.org/clim/sst_daily/', '_blank')">
+                            <div class="circlestat"><img class="iconsvg"
+                                    src="../svg_icons/temperature-three-quarters-solid.svg" alt=""></div>
+                            <div class="circlestattwo"></div>
+                        </div>
+                        <div class="catascircle eathquakecircle"
+                            onclick="window.open('https://earthquake.usgs.gov/earthquakes/map/?extent=-86.22108,-319.92188&extent=86.22108,321.32813&range=week&magnitude=4.5&listOnlyShown=true&list=false&settings=true', '_blank')">
+                            <div class="circlestat"><img class="iconsvg" src="../svg_icons/house-crack-solid.svg"
+                                    alt=""></div>
+                            <div class="circlestattwo"></div>
+                        </div>
+                        <div class="catascircle volcanocircle"
+                            onclick="window.open('https://www.volcanodiscovery.com/worldwide-volcano-activity/daily-reports.html', '_blank')">
+                            <div class="circlestat"><img class="iconsvg" src="../svg_icons/volcano-solid.svg" alt="">
+                            </div>
+                            <div class="circlestattwo"></div>
+                        </div>
+                        <div class="catascircle firecircle"
+                            onclick="window.open('https://earthobservatory.nasa.gov/global-maps/MOD14A1_M_FIRE', '_blank')">
+                            <div class="circlestat"><img class="iconsvg" src="../svg_icons/fire-solid.svg" alt="">
+                            </div>
+                            <div class="circlestattwo"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="WhatToDo" class="tabcontent">
+                <div class="whattodoimg">
+                    <img src="../pictures/whattodo.jpg" alt="">
+                    <img class="hide" src="../pictures/whattodonext.jpg" alt="">
+                    <img class="hide" src="../pictures/whattodonext.jpg" alt="">
+                </div>
+                <section class="whattodofield">
+                    <h2>Was tun in einer kritischen Situation?</h2>
+                    <div class="whattodoitem">
+                        <div class="circle"><i class="fa fa-cloud"></i></div>
+                        <button class="cataclism" onclick="toShow('descriptionHurrTorn')">
+                            <h3>Hurrikan, Tornado</h3>
+                        </button>
+                    </div>
+                    <div id="descriptionHurrTorn" class="cataclismDescript">
+                        <p>Als Hurrikan wird ein tropischer Wirbelsturm mit einer Windgeschwindigkeit über 118 km/h
+                            bezeichnet, wenn er im Atlantik, in der Karibik, im Nord- oder Südpazifik entsteht. </p>
+                        <p>In der Mitte des Hurrikans entsteht ein trichterförmiges Gebiet, in dem Luft absinkt,
+                            sich
+                            dabei
+                            erwärmt und abtrocknet. In diesem so genannten Auge, das einen Durchmesser von zehn bis
+                            30
+                            Kilometer hat, herrscht fast Windstille und der Himmel ist heiter. An seinem Rand steigt
+                            die
+                            feuchtwarme Luft spiralförmig auf. Hier findet man die höchsten Windstärken von bis zu
+                            350
+                            km/h.
+                            Ein Hurrikan reicht viele tausend Meter in die Höhe und kann einen Durchmesser von bis
+                            zu
+                            1000
+                            km haben. Nach der Saffir-Simpson-Hurrikan-Skala werden sie nach ihrer
+                            durchschnittlichen
+                            Windgeschwindigkeit in fünf Kategorien eingeteilt, von schwach bis verwüstend ab einer
+                            durchschnittlichen Geschwindigkeit von mehr als 250 km/h.</p>
+                        <p>Ihre zerstörerische Wirkung entfalten Hurrikane durch die hohen Windgeschwindigkeiten und
+                            die
+                            enormen Niederschläge. Darüber hinaus können sie zu Flutwellen von zehn Metern und mehr
+                            führen.
+                            Das Ausmaß der Schäden hängt zum einen von der Windgeschwindigkeit ab, aber natürlich
+                            auch
+                            von
+                            dem Gebiet, auf das der Sturm trifft. So werden Holzhäuser leichter zerstört als solche
+                            aus
+                            Stein. Und in einem Gebiet, dass ohnehin schon unter dem Meeresspiegel liegt, wie es
+                            beispielsweise für New Orleans der Fall ist, kann die Flutwelle verheerend sein.
+                            Hurrikan
+                            Katrina richtete dort und in den umliegenden Gebieten im August 2005 den bisher größten
+                            materiellen Schaden von rund 100 Milliarden Euro an.</p>
+                        <h4>Wie schützt man sich vor einem Hurrikan?</h4>
+                        <ul>
+                            <li>Die wichtigste Sicherheitsmaßnahme bei solchen Stürmen heißt, zuhause bleiben. </li>
+                            <li>Wer ganz sicher gehen möchte, nagelt auch Bretter vor die Fenster, nicht jede
+                                Glasscheibe
+                                hält einem so starken Wind stand.</li>
+                            <li>Wegfliegen können auch Autos oder zumindest umgeblasen werden, deshalb sollte man
+                                das
+                                Auto
+                                in der Garage lassen.</li>
+                            <li>Falls noch andere Dinge zu beachten sind, werden die über das Radio durchgesagt.
+                                Deshalb
+                                lautet eine weitere Grundregel bei einem Hurrikan: Das Radio anlassen.</li>
+                        </ul>
+                        <p>Quellen:</p>
+                        <a
+                            href="https://www.wissenschaft-im-dialog.de/projekte/wieso/artikel/beitrag/was-ist-ein-hurrikan-und-wie-entsteht-er/">https://www.wissenschaft-im-dialog.de/projekte/wieso/artikel/beitrag/was-ist-ein-hurrikan-und-wie-entsteht-er/</a><br>
+                        <a
+                            href="https://www.badische-zeitung.de/wie-schuetzt-man-sich-vor-einem-hurrikan--141154233.html">https://www.badische-zeitung.de/wie-schuetzt-man-sich-vor-einem-hurrikan--141154233.html</a><br><br>
+                    </div>
+                    <div class="whattodoitem">
+                        <div class="circle"><i class="fa fa-heartbeat"></i></div>
+                        <button class="cataclism" onclick="toShow('descriptionEarthquake')">
+                            <h3>Erdbeben</h3>
+                        </button>
+                    </div>
+                    <div id="descriptionEarthquake" class="cataclismDescript">
+                        <p>Erdbeben sind Vibrationen oder Erschütterungen der Erde, die meist durch plötzliche
+                            Freisetzung
+                            von Energie im Erdinneren verursacht werden. Diese wird durch seismische Wellen an die
+                            Erdoberfläche übertragen.</p>
+                        <p>Die Intensität eines Erdbebens wird mit der Richter-Skala gemessen, die von Charles F.
+                            Richter im
+                            Jahr 1935 entwickelt wurde. Diese misst die Energie, die bei einem Erdbeben freigesetzt
+                            wird,
+                            mit einer logarithmischen Skala. Beispiel: ein Erdbeben der Stärke 5 setzt etwa 31.6 mal
+                            mehr
+                            Energie frei als ein Erdbeben der Stärke 4.</p>
+                        <h4>Was tun, um sich zu schützen?</h4>
+                        <ul>
+                            <li>Am sichersten ist es auf freien Plätzen auszuharren, bis die Erschütterungen
+                                abgeklungen
+                                sind. Denn weit weg von Gebäuden, Straßenlaternen, Bäumen oder Stromleitungen läuft
+                                man
+                                nicht Gefahr, von herabfallenden Gegenständen getroffen zu werden. Befindet man sich
+                                hingegen in direkter Nähe zu Gebäuden, sollte man Kopf und Gesicht vor Glasscherben
+                                und
+                                splitternden Fenstern schützen.</li>
+                            <li>Befindet man sich an der Küste, sollte man sich so schnell wie möglich landeinwärts
+                                oder
+                                auf
+                                höher gelegene Plätze flüchten. Denn Erdbeben, die sich im Meer ereignen, können
+                                Tsunamis
+                                auslösen. Der Zufluchtsort sollte daher erst verlassen werden, wenn
+                                Tsunami-Entwarnung
+                                gegeben wird.</li>
+                            <li>Befindet man sich während des Bebens im Auto, sollte man sofort an den Straßenrand
+                                fahren
+                                und einen sicheren Abstand zu Gebäuden, Bäumen und Versorgungsleitungen wahren.
+                                Aufgrund
+                                der
+                                akuten Einsturzgefahr sollten auch Brücken und Tunnel gemieden werden. Am besten
+                                bleibt
+                                man
+                                im Fahrzeug, solange die Erschütterungen anhalten. Darüber hinaus sollte darauf
+                                geachtet
+                                werden, dass Straßen und Zufahrtswege für Polizei und Rettungsfahrzeuge frei
+                                bleiben.
+                            </li>
+                            <li>Befindet man sich während des Bebens im Haus, sollte man auf keinen Fall
+                                Treppenhäuser
+                                und
+                                Fahrstühle benutzen. Nur wenn man sich in direkter Nähe zu einer Außentür befindet,
+                                sollte
+                                man das Gebäude verlassen. Ansonsten ist angeraten unter stabilen, schweren
+                                Möbelstücken
+                                wie
+                                Tischen oder in Türrahmen Schutz zu suchen. Zudem sollte ein sicherer Abstand zu
+                                instabilen
+                                Regalen und Fenstern eingehalten und der Kopf mit verschränkten Armen vor
+                                Glassplittern
+                                und
+                                herunterfallenden Gegenständen geschützt werden.</li>
+                            <li>Sind in direkter Umgebung verwundete oder verschüttete Personen, so sollte man
+                                versuchen,
+                                Erste Hilfe zu leisten. Schwerverletzte dürfen nicht bewegt werden. Auch sollte man
+                                sich
+                                davor in Acht nehmen, beschädigte Gebäude zu betreten.</li>
+                            <li>Zuhause sollten Strom, Gas, Heizung und Herd abgestellt und geprüft werden, ob
+                                elektrische
+                                Leitungen oder Gasanschlüsse defekt sind. Indizien hierfür sind Funken, gebrochene
+                                Kabel
+                                und
+                                Gasgeruch. Zudem sollte man abklären, ob es durch das Beben zu
+                                Trinkwasserverunreinigungen
+                                gekommen ist.</li>
+                            <li>Ist die Wohnung infolge des Erdbebens unbewohnbar und man findet in einer
+                                Notunterkunft
+                                Unterschlupf, die nicht über die gewohnten sanitären Einrichtungen verfügt, so ist
+                                aufgrund
+                                einer potenziellen Seuchengefahr größtmögliche Hygiene geboten.</li>
+                        </ul>
+                        <p>Quellen:</p>
+                        <a
+                            href="https://www.studysmarter.de/schule/geographie/geodynamische-prozesse/erdbeben/">https://www.studysmarter.de/schule/geographie/geodynamische-prozesse/erdbeben/</a><br>
+                        <a
+                            href="https://www.aktion-deutschland-hilft.de/de/fachthemen/natur-humanitaere-katastrophen/erdbeben/was-tun-um-sich-zu-schuetzen/">https://www.aktion-deutschland-hilft.de/de/fachthemen/natur-humanitaere-katastrophen/erdbeben/was-tun-um-sich-zu-schuetzen/</a><br><br>
+                    </div>
+                    <div class="whattodoitem">
+                        <div class="circle"><i class="fa fa-globe"></i></div>
+                        <button class="cataclism" onclick="toShow('descriptionFlood')">
+                            <h3>Hochwasser</h3>
+                        </button>
+                    </div>
+                    <div id="descriptionFlood" class="cataclismDescript">
+                        <p>Hochwasser ist ein natürliches Phänomen, das auftritt, wenn Wasser in großer Menge auf
+                            die
+                            Erdoberfläche trifft und der Boden die Flüssigkeit nicht mehr aufnehmen kann.</p>
+                        <p>Unter Hochwasser versteht du eine vorübergehende Überschwemmung von Land, das
+                            normalerweise
+                            nicht
+                            mit Wasser bedeckt ist. Dies geschieht, wenn ein Fluss über seine Ufer tritt oder
+                            intensive
+                            Regenfälle den Boden übersättigen.</p>
+                        <h4>Welche Vorsorgemaßnahmen kann ich gegen Starkregen und Hochwasser treffen?</h4>
+                        <ul>
+                            <li>Der Rückstau aus dem Abwasserkanal ist bei Weitem die häufigste Schadensursache bei
+                                Starkregenereignissen und liegt allein in der Verantwortung des Hauseigentümers!
+                            </li>
+                            <li>Oft ist es hilfreich, etwa Schwellen an Eingängen vorzusehen, Kellerlichtschächte zu
+                                ummauern, Kellerfenster wasserdicht mit Druckverschluss auszubilden, druckdicht
+                                verschließbare Eingangstüren vorzusehen oder Einfahrten in Tiefgaragen mit einer
+                                Schwelle zu
+                                sichern. </li>
+                            <li>Falls Sanitäreinrichtungen (zum Beispiel WC, Waschbecken, Dusche), Waschmaschinen
+                                oder
+                                Brennwertheizungen unter der Rückstauebene betrieben werden und sind die Sicherungs-
+                                und
+                                Verteilkästen der Elektroinstallation noch im Kellerbereich installiert, ist eine
+                                regelmäßig
+                                gewartete Hebeanlage erforderlich. </li>
+                            <li>Liegt das Grundstück in einem ausgewiesenen Überschwemmungsgebiet oder in einem
+                                Tiefbereich
+                                im Gelände? </li>
+                        </ul>
+                        <p>Quellen:</p>
+                        <a
+                            href="https://www.studysmarter.de/schule/geographie/hydrographie/hochwasser/">https://www.studysmarter.de/schule/geographie/hydrographie/hochwasser/</a><br>
+                        <a
+                            href="https://www.bmuv.de/faq/welche-vorsorgemassnahmen-kann-ich-gegen-starkregen-und-hochwasser-treffen">https://www.bmuv.de/faq/welche-vorsorgemassnahmen-kann-ich-gegen-starkregen-und-hochwasser-treffen</a><br><br>
+                    </div>
+                    <div class="whattodoitem">
+                        <div class="circle"><i class="fa fa-photo"></i></i></div>
+                        <button class="cataclism" onclick="toShow('descriptionVulkan')">
+                            <h3>Vulkanausbruch</h3>
+                        </button>
+                    </div>
+                    <div id="descriptionVulkan" class="cataclismDescript">
+                        <p>Ein Vulkanausbruch ist die Freisetzung von Magma, Gasen und Asche aus der Erdrinde an
+                            einer
+                            bestimmten Stelle, die als Vulkan bezeichnet wird. Diese geologischen Phänomene
+                            entstehen
+                            durch
+                            Prozesse im Erdinneren und können in verschiedenen Formen auftreten. Im Folgenden werden
+                            die
+                            Entstehung und die unterschiedlichen Arten von Vulkanausbrüchen sowie die
+                            zugrundeliegenden
+                            geodynamischen Prozesse erläutert.</p>
+                        <p>Wegen den fließenden heißen Lavaströmen, die bei einem Vulkanausbruch entstehen, können
+                            Waldbrände ausgelöst werden, die noch zusätzliche Gefahren mit sich bringen.</p>
+                        <h4>Was tun bei einem Vulkanausbruch?</h4>
+                        <ul>
+                            <li>Eine Atemschutzmaske gegen die giftigen Gase, einen Kopfschutz gegen herumfliegende
+                                Gesteinsbrocken, eine Schutzbrille und genügend Wasser erhöhen Ihre
+                                Überlebenschancen
+                                bei
+                                einem Vulkanausbruch.</li>
+                            <li>Eine lange Hose und langärmlige Oberbekleidung ist vorzuziehen – auch bei hohen
+                                Außentemperaturen. Am besten sind schwer brennbare Stoffe wie zum Beispiel
+                                Naturfasern
+                                oder
+                                Nomex.</li>
+                            <li>Beim herabsteigen vom Vulkan sollten Sie Täler und Schluchten vermeiden. Bei einem
+                                Vulkanausbruch fließen die Lavaströme meistens dort entlang. Wenn man sich bei einer
+                                Eruption zu Nahe am Vulkan befindet, ist das Entkommen nicht so einfach. Ohne einen
+                                erfahrenen Führer, der die Fluchtwege kennt, sollten Sie gar nicht in die Nähe des
+                                Kraters
+                                gehen.</li>
+                            <li>Auch wenn Sie ein Auto zur Verfügung haben, ist das keine Garantie zu entkommen.
+                                Durch
+                                die
+                                Vulkanasche, die in der Luft liegt, werden die Motoren und andere Teile des Autos in
+                                ihrer
+                                Funktion blockiert. Das Auto ist meistens nach einer kurzen Zeit nicht mehr
+                                fahrbereit.
+                                Nur
+                                wenn die Vorwarnzeit lang genug ist und es noch nicht zum Ascheregen gekommen ist,
+                                kann
+                                man
+                                mit dem Auto rechtzeitig entkommen.</li>
+                        </ul>
+                        <p>Quellen:</p>
+                        <a
+                            href="https://www.studysmarter.de/schule/geographie/geodynamische-prozesse/vulkanausbruch/">https://www.studysmarter.de/schule/geographie/geodynamische-prozesse/vulkanausbruch/</a><br>
+                        <a
+                            href="https://www.garantiert-reisen.de/vulkanausbruch/">https://www.garantiert-reisen.de/vulkanausbruch/</a><br><br>
+                    </div>
+                    <div class="whattodoitem">
+                        <div class="circle"><i class="fa fa-fire"></i></div>
+                        <button class="cataclism" onclick="toShow('descriptionFire')">
+                            <h3>Waldbrände</h3>
+                        </button>
+                    </div>
+                    <div id="descriptionFire" class="cataclismDescript">
+                        <p>Waldbrände lassen sich in vier Typen unterteilen: Meist entzünden sich zunächst das Gras
+                            und
+                            der
+                            niedrige trockene Unterwuchs. Es kommt zu einem Bodenfeuer, das noch leicht bekämpft
+                            werden
+                            kann. Wenn es sich zu einem Lauffeuer auswächst, wird großflächiger auch die Verjüngung,
+                            höheren
+                            Büsche und Bäume im Unterstand erfasst. Diese Feuer können noch gelöscht werden.</p>
+                        <p>Besonders bei Nadelhölzern kann das Feuer auf die Baumwipfel überspringen. Das führt
+                            rasch zu
+                            einem Kronenfeuer und zu einem rasanten Ausbreiten der Flammen. Kronenfeuer lassen sich
+                            deutlich
+                            schwerer bekämpfen und wachsen sich leicht zu einem Totalbrand aus. Dieser kann nur
+                            schwerlich
+                            gelöscht werden. Ein Megabrand stellt einen großräumigen Totalbrand dar, der erst nach
+                            dem
+                            Verbrennen des Materials oder an natürlichen Grenzen wie Küsten, Seen oder Schluchten
+                            Halt
+                            macht. Mosaikartige Übergänge der Brandtypen sind typisch.</p>
+                        <h4>Wie verhält man sich, wenn man einen Waldbrand entdeckt?</h4>
+                        <ul>
+                            <li>Wer einen kleinen Brand entdeckt oder selbst verursacht hat, sollte versuchen,
+                                diesen
+                                durch
+                                Austreten oder mit mitgebrachten Getränken sofort zu löschen. Dabei ist wichtig,
+                                sich
+                                selbst
+                                nicht in Gefahr zu bringen und auch nach gelöschtem Brand die Feuerwehr oder die
+                                nächste
+                                Polizeidienststelle zu alarmieren.</li>
+                            <li>Bei größeren Waldbränden gilt, umgehend die Notrufnummer 112 anzurufen oder die
+                                nächstgelegene Revierförsterei zu informieren, damit das Feuer professionell
+                                bekämpft
+                                werden
+                                kann.</li>
+                            <li>Wer sich retten muss, sollte unbedingt gegen die Windrichtung vor dem Feuer flüchten
+                                und
+                                auf
+                                die Hinweise der Notrufzentrale achten. Das Handy bietet zudem über die
+                                Kartenfunktion
+                                genaue Ortungsdaten für die professionellen Retter.</li>
+                        </ul>
+                        <p>Quellen:</p>
+                        <a
+                            href="https://www.wwf.de/themen-projekte/waelder/waldbraende/natuerliches-phaenomen-ausser-kontrolle">https://www.wwf.de/themen-projekte/waelder/waldbraende/natuerliches-phaenomen-ausser-kontrolle</a><br>
+                        <a
+                            href="https://www.zdf.de/nachrichten/panorama/waldbrand-gefahr-verhalten-schutz-100.html">https://www.zdf.de/nachrichten/panorama/waldbrand-gefahr-verhalten-schutz-100.html</a><br><br>
+                    </div>
+                </section>
+            </div>
+            <div id="SendInfo" class="tabcontent">
+                <div class="sendinfoimg">
+                    <img src="../pictures/sentInfo2.jpg" alt="">
+                </div>
+                <section class="sendwithphoto">
+                    <div class="sendphoto">
+                        <h2>Informationen mit Fotos senden</h2>
+                        <form id="sendphotoform" action="contact" method="POST">
+                            <fieldset class="sendphotofield">
+                                <legend>Fotos schicken</legend>
+                                <table>
+                                    <tr>
+                                        <td><label for="lastname">Nachname:</label></td>
+                                        <td><input type="text" id="lname" name="lastname" class="widtharea"
+                                                placeholder="Geben Sie Ihren Nachnamen ein..." /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="firstname">Vorname:</label></td>
+                                        <td><input type="text" id="fname" name="firstname" class="widtharea"
+                                                placeholder="Geben Sie Ihren Vornamen ein..." /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="email">E-Mail:</label></td>
+                                        <td>
+                                            <input type="email" id="email" name="person@gmail.com" class="widtharea" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="country">Das Land:</label></td>
+                                        <td><select id="cntry" name="country" class="widtharea">
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                                <option value="American Samoa">American Samoa</option>
+                                                <option value="Andorra">Andorra</option>
+                                                <option value="Angola">Angola</option>
+                                                <option value="Anguilla">Anguilla</option>
+                                                <option value="Antartica">Antarctica</option>
+                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                <option value="Argentina">Argentina</option>
+                                                <option value="Armenia">Armenia</option>
+                                                <option value="Aruba">Aruba</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Austria">Austria</option>
+                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                <option value="Bahamas">Bahamas</option>
+                                                <option value="Bahrain">Bahrain</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                                <option value="Barbados">Barbados</option>
+                                                <option value="Belarus">Belarus</option>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="Belize">Belize</option>
+                                                <option value="Benin">Benin</option>
+                                                <option value="Bermuda">Bermuda</option>
+                                                <option value="Bhutan">Bhutan</option>
+                                                <option value="Bolivia">Bolivia</option>
+                                                <option value="Bosnia and Herzegowina">Bosnia and Herzegowina
+                                                </option>
+                                                <option value="Botswana">Botswana</option>
+                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                <option value="Brazil">Brazil</option>
+                                                <option value="British Indian Ocean Territory">British Indian Ocean
+                                                    Territory
+                                                </option>
+                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                <option value="Bulgaria">Bulgaria</option>
+                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                <option value="Burundi">Burundi</option>
+                                                <option value="Cambodia">Cambodia</option>
+                                                <option value="Cameroon">Cameroon</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="Cape Verde">Cape Verde</option>
+                                                <option value="Cayman Islands">Cayman Islands</option>
+                                                <option value="Central African Republic">Central African Republic
+                                                </option>
+                                                <option value="Chad">Chad</option>
+                                                <option value="Chile">Chile</option>
+                                                <option value="China">China</option>
+                                                <option value="Christmas Island">Christmas Island</option>
+                                                <option value="Cocos Islands">Cocos (Keeling) Islands</option>
+                                                <option value="Colombia">Colombia</option>
+                                                <option value="Comoros">Comoros</option>
+                                                <option value="Congo">Congo</option>
+                                                <option value="Congo">Congo, the Democratic Republic of the</option>
+                                                <option value="Cook Islands">Cook Islands</option>
+                                                <option value="Costa Rica">Costa Rica</option>
+                                                <option value="Cota D'Ivoire">Cote d'Ivoire</option>
+                                                <option value="Croatia">Croatia (Hrvatska)</option>
+                                                <option value="Cuba">Cuba</option>
+                                                <option value="Cyprus">Cyprus</option>
+                                                <option value="Czech Republic">Czech Republic</option>
+                                                <option value="Denmark">Denmark</option>
+                                                <option value="Djibouti">Djibouti</option>
+                                                <option value="Dominica">Dominica</option>
+                                                <option value="Dominican Republic">Dominican Republic</option>
+                                                <option value="East Timor">East Timor</option>
+                                                <option value="Ecuador">Ecuador</option>
+                                                <option value="Egypt">Egypt</option>
+                                                <option value="El Salvador">El Salvador</option>
+                                                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                                <option value="Eritrea">Eritrea</option>
+                                                <option value="Estonia">Estonia</option>
+                                                <option value="Ethiopia">Ethiopia</option>
+                                                <option value="Falkland Islands">Falkland Islands (Malvinas)
+                                                </option>
+                                                <option value="Faroe Islands">Faroe Islands</option>
+                                                <option value="Fiji">Fiji</option>
+                                                <option value="Finland">Finland</option>
+                                                <option value="France">France</option>
+                                                <option value="France Metropolitan">France, Metropolitan</option>
+                                                <option value="French Guiana">French Guiana</option>
+                                                <option value="French Polynesia">French Polynesia</option>
+                                                <option value="French Southern Territories">French Southern
+                                                    Territories
+                                                </option>
+                                                <option value="Gabon">Gabon</option>
+                                                <option value="Gambia">Gambia</option>
+                                                <option value="Georgia">Georgia</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="Ghana">Ghana</option>
+                                                <option value="Gibraltar">Gibraltar</option>
+                                                <option value="Greece">Greece</option>
+                                                <option value="Greenland">Greenland</option>
+                                                <option value="Grenada">Grenada</option>
+                                                <option value="Guadeloupe">Guadeloupe</option>
+                                                <option value="Guam">Guam</option>
+                                                <option value="Guatemala">Guatemala</option>
+                                                <option value="Guinea">Guinea</option>
+                                                <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                                <option value="Guyana">Guyana</option>
+                                                <option value="Haiti">Haiti</option>
+                                                <option value="Heard and McDonald Islands">Heard and Mc Donald
+                                                    Islands
+                                                </option>
+                                                <option value="Holy See">Holy See (Vatican City State)</option>
+                                                <option value="Honduras">Honduras</option>
+                                                <option value="Hong Kong">Hong Kong</option>
+                                                <option value="Hungary">Hungary</option>
+                                                <option value="Iceland">Iceland</option>
+                                                <option value="India">India</option>
+                                                <option value="Indonesia">Indonesia</option>
+                                                <option value="Iran">Iran (Islamic Republic of)</option>
+                                                <option value="Iraq">Iraq</option>
+                                                <option value="Ireland">Ireland</option>
+                                                <option value="Israel">Israel</option>
+                                                <option value="Italy">Italy</option>
+                                                <option value="Jamaica">Jamaica</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Jordan">Jordan</option>
+                                                <option value="Kazakhstan">Kazakhstan</option>
+                                                <option value="Kenya">Kenya</option>
+                                                <option value="Kiribati">Kiribati</option>
+                                                <option value="Democratic People's Republic of Korea">Korea,
+                                                    Democratic
+                                                    People's
+                                                    Republic of</option>
+                                                <option value="Korea">Korea, Republic of</option>
+                                                <option value="Kuwait">Kuwait</option>
+                                                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                                <option value="Lao">Lao People's Democratic Republic</option>
+                                                <option value="Latvia">Latvia</option>
+                                                <option value="Lebanon" selected>Lebanon</option>
+                                                <option value="Lesotho">Lesotho</option>
+                                                <option value="Liberia">Liberia</option>
+                                                <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya
+                                                </option>
+                                                <option value="Liechtenstein">Liechtenstein</option>
+                                                <option value="Lithuania">Lithuania</option>
+                                                <option value="Luxembourg">Luxembourg</option>
+                                                <option value="Macau">Macau</option>
+                                                <option value="Macedonia">Macedonia, The Former Yugoslav Republic of
+                                                </option>
+                                                <option value="Madagascar">Madagascar</option>
+                                                <option value="Malawi">Malawi</option>
+                                                <option value="Malaysia">Malaysia</option>
+                                                <option value="Maldives">Maldives</option>
+                                                <option value="Mali">Mali</option>
+                                                <option value="Malta">Malta</option>
+                                                <option value="Marshall Islands">Marshall Islands</option>
+                                                <option value="Martinique">Martinique</option>
+                                                <option value="Mauritania">Mauritania</option>
+                                                <option value="Mauritius">Mauritius</option>
+                                                <option value="Mayotte">Mayotte</option>
+                                                <option value="Mexico">Mexico</option>
+                                                <option value="Micronesia">Micronesia, Federated States of</option>
+                                                <option value="Moldova">Moldova, Republic of</option>
+                                                <option value="Monaco">Monaco</option>
+                                                <option value="Mongolia">Mongolia</option>
+                                                <option value="Montserrat">Montserrat</option>
+                                                <option value="Morocco">Morocco</option>
+                                                <option value="Mozambique">Mozambique</option>
+                                                <option value="Myanmar">Myanmar</option>
+                                                <option value="Namibia">Namibia</option>
+                                                <option value="Nauru">Nauru</option>
+                                                <option value="Nepal">Nepal</option>
+                                                <option value="Netherlands">Netherlands</option>
+                                                <option value="Netherlands Antilles">Netherlands Antilles</option>
+                                                <option value="New Caledonia">New Caledonia</option>
+                                                <option value="New Zealand">New Zealand</option>
+                                                <option value="Nicaragua">Nicaragua</option>
+                                                <option value="Niger">Niger</option>
+                                                <option value="Nigeria">Nigeria</option>
+                                                <option value="Niue">Niue</option>
+                                                <option value="Norfolk Island">Norfolk Island</option>
+                                                <option value="Northern Mariana Islands">Northern Mariana Islands
+                                                </option>
+                                                <option value="Norway">Norway</option>
+                                                <option value="Oman">Oman</option>
+                                                <option value="Pakistan">Pakistan</option>
+                                                <option value="Palau">Palau</option>
+                                                <option value="Panama">Panama</option>
+                                                <option value="Papua New Guinea">Papua New Guinea</option>
+                                                <option value="Paraguay">Paraguay</option>
+                                                <option value="Peru">Peru</option>
+                                                <option value="Philippines">Philippines</option>
+                                                <option value="Pitcairn">Pitcairn</option>
+                                                <option value="Poland">Poland</option>
+                                                <option value="Portugal">Portugal</option>
+                                                <option value="Puerto Rico">Puerto Rico</option>
+                                                <option value="Qatar">Qatar</option>
+                                                <option value="Reunion">Reunion</option>
+                                                <option value="Romania">Romania</option>
+                                                <option value="Russia">Russian Federation</option>
+                                                <option value="Rwanda">Rwanda</option>
+                                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                                <option value="Saint LUCIA">Saint LUCIA</option>
+                                                <option value="Saint Vincent">Saint Vincent and the Grenadines
+                                                </option>
+                                                <option value="Samoa">Samoa</option>
+                                                <option value="San Marino">San Marino</option>
+                                                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                                <option value="Senegal">Senegal</option>
+                                                <option value="Seychelles">Seychelles</option>
+                                                <option value="Sierra">Sierra Leone</option>
+                                                <option value="Singapore">Singapore</option>
+                                                <option value="Slovakia">Slovakia (Slovak Republic)</option>
+                                                <option value="Slovenia">Slovenia</option>
+                                                <option value="Solomon Islands">Solomon Islands</option>
+                                                <option value="Somalia">Somalia</option>
+                                                <option value="South Africa">South Africa</option>
+                                                <option value="South Georgia">South Georgia and the South Sandwich
+                                                    Islands</option>
+                                                <option value="Span">Spain</option>
+                                                <option value="SriLanka">Sri Lanka</option>
+                                                <option value="St. Helena">St. Helena</option>
+                                                <option value="St. Pierre and Miguelon">St. Pierre and Miquelon
+                                                </option>
+                                                <option value="Sudan">Sudan</option>
+                                                <option value="Suriname">Suriname</option>
+                                                <option value="Svalbard">Svalbard and Jan Mayen Islands</option>
+                                                <option value="Swaziland">Swaziland</option>
+                                                <option value="Sweden">Sweden</option>
+                                                <option value="Switzerland">Switzerland</option>
+                                                <option value="Syria">Syrian Arab Republic</option>
+                                                <option value="Taiwan">Taiwan, Province of China</option>
+                                                <option value="Tajikistan">Tajikistan</option>
+                                                <option value="Tanzania">Tanzania, United Republic of</option>
+                                                <option value="Thailand">Thailand</option>
+                                                <option value="Togo">Togo</option>
+                                                <option value="Tokelau">Tokelau</option>
+                                                <option value="Tonga">Tonga</option>
+                                                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                                <option value="Tunisia">Tunisia</option>
+                                                <option value="Turkey">Turkey</option>
+                                                <option value="Turkmenistan">Turkmenistan</option>
+                                                <option value="Turks and Caicos">Turks and Caicos Islands</option>
+                                                <option value="Tuvalu">Tuvalu</option>
+                                                <option value="Uganda">Uganda</option>
+                                                <option value="Ukraine">Ukraine</option>
+                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                <option value="United Kingdom">United Kingdom</option>
+                                                <option value="United States">United States</option>
+                                                <option value="United States Minor Outlying Islands">United States
+                                                    Minor
+                                                    Outlying
+                                                    Islands</option>
+                                                <option value="Uruguay">Uruguay</option>
+                                                <option value="Uzbekistan">Uzbekistan</option>
+                                                <option value="Vanuatu">Vanuatu</option>
+                                                <option value="Venezuela">Venezuela</option>
+                                                <option value="Vietnam">Viet Nam</option>
+                                                <option value="Virgin Islands (British)">Virgin Islands (British)
+                                                </option>
+                                                <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
+                                                <option value="Wallis and Futana Islands">Wallis and Futuna Islands
+                                                </option>
+                                                <option value="Western Sahara">Western Sahara</option>
+                                                <option value="Yemen">Yemen</option>
+                                                <option value="Serbia">Serbia</option>
+                                                <option value="Zambia">Zambia</option>
+                                                <option value="Zimbabwe">Zimbabwe</option>
+                                            </select></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="message">Informarionen:</label></td>
+                                        <td>
+                                            <textarea id="mssage" name="message" row="600" cols="30"
+                                                class="widtharea"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="photo">Foto hinzufügen:</label></td>
+                                        <td>
+                                            <input type="file" id="myfile" name="myfile">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="file">Datei hinzufügen:</label></td>
+                                        <td>
+                                            <input type="file" id="myfile" name="myfile">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <button class="btnSendPhoto" type="submit" role="button">Informationen senden</button>
+                                <div id="loader" class="hidden">Sendevorgang läuft...</div> 
+                            </fieldset>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="contactus">
+            <button id="btncontactus"
+                onclick="window.open('/CleveresWetter/contactus/index_contactus.html', '_blank')">Kontaktieren
+                Sie
+                uns</button>
+        </div>
+        <div class="moreinfo">
+            <h2>Mehr Informationen hier:</h2>
+        </div>
+        <div class="icon-bar">
+            <a href="https://www.youtube.com/@KaiZornWetter/videos" class="youtube" target="blank"><i
+                    class="fa fa-youtube"></i></a>
+            <a href="https://www.facebook.com/wettervorhersage.frank.abel" class="facebook" target="blank"><i id="fb"
+                    class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/wetter" class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.wetter.de/deutsch" class="google" target="blank"><i class="fa fa-google"></i></a>
+        </div>
+    </footer>
+    <script src="main_mainpage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+body {
+    background-image: url(../pictures/greetings_10.jpg);
+    background-position: 85%;
+}
+
+#greetings {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #fff;
+}
+
+h1 {
+    color: #ffedf6;
+    font-family: 'Sofia';
+    font-size: 145px;
+    line-height: 160px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 5%;
+    text-align: center;
+    text-shadow: -8px -16px 10px #3b1625b5;
+}
+
+h2 {
+    color: #ffffff;
+    font-family: 'Edu TAS Beginner';
+    font-size: 30px;
+    font-weight: 300;
+    margin: 10px;
+    text-shadow: 2px 2px 5px #c00707;
+}
+
+h3 {
+    color: #ffffff;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.headertwo {
+    background-color: rgba(255, 255, 255, 0.214);
+    margin-bottom: 20px;
+}
+
+button {
+    color: beige;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;    
+    text-align: center;
+    text-shadow: 0 1px 10px #fff;
+    width: 13%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(193, 37, 37, 0.842);
+    border-radius: 10px;
+    padding: 5px; 
+}
+

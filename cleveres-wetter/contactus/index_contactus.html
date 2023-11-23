@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="mystyle_contactus.css" />
+    <title>Kontakt</title>
+</head>
+
+<body>
+    <div class="contactieren">
+        <div class="contactform">
+            <h1>Kontaktiere uns</h1>
+            <form id="contactusform" action="contact" method="POST">
+                <fieldset class="contactfield">
+                    <legend>Kontakt</legend>
+                    <table>
+                        <tr>
+                            <td><label for="lastname">Nachname:</label></td>
+                            <td><input type="text" id="lname" name="lastname" class="widtharea"
+                                    placeholder="Geben Sie Ihren Nachnamen ein..." /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="firstname">Vorname:</label></td>
+                            <td><input type="text" id="fname" name="firstname" class="widtharea"
+                                    placeholder="Geben Sie Ihren Vornamen ein..." /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">E-Mail:</label></td>
+                            <td>
+                                <input type="email" id="email" name="person@gmail.com" class="widtharea" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="message">Ihre Nachricht:</label></td>
+                            <td>
+                                <textarea id="mssage" name="message" row="600" cols="30" class="widtharea"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="buttonsenden" type="submit" role="button">Schicken</button>
+                    <div id="loader" class="hidden">Sendevorgang läuft...</div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script src="main_contaktus.js"></script>
+</body>
+
+</html>

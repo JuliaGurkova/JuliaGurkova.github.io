@@ -1,0 +1,657 @@
+#pic {
+    width: 100%;
+    height: fit-content;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(to bottom right,
+            rgba(126, 65, 135, 0.816),
+            rgba(229, 216, 226, 0.816));
+}
+
+.helloheader {
+    margin-left: 24px;
+}
+
+h1 {
+    font-style: italic;
+    color: #fffffff7;
+    font-size: 43px;
+    margin-top: 20px;
+    margin-left: 7px;
+    text-align: center;
+    text-shadow: 0 4px 8px rgb(155, 33, 33);
+}
+
+header>nav>ul {
+    display: flex;
+    justify-content: start;
+    list-style-type: none;
+    font-size: large;
+}
+
+header>nav>ul>li {
+    padding: 10px 20px;
+    transition: background-color 1s;
+}
+
+/* Button registation */
+.buttonRegistr {
+    align-items: center;
+    appearance: none;
+    background-color: #f1c8e8;
+    ;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #3d2055;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 38px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.buttonRegistr:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.buttonRegistr:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.buttonRegistr:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+/* The tab and tab content*/
+.tabsection {
+    margin-top: 97px;
+}
+
+.tab {
+    overflow: hidden;
+    position: fixed;
+    border: 1px solid #ccc;
+    background-color: #dec7cb;
+    width: 100%;
+    z-index: 999;
+
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    font-weight: bold;
+    text-shadow: 0 3px 6px rgb(241 102 160);
+    ;
+    color: #590e50;
+    margin-left: 20px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/* Weather forecast */
+
+#TodaysWeather {
+height: 102vh;
+}
+
+.weatherimg {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    margin-left: -15px;
+    overflow: hidden;
+    height: 120vh;
+}
+
+.weatherimg>img {
+    position: relative;
+    margin-left: -25px;
+}
+
+.weatherfield {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.weathercontent {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.tableline {
+    width: 450px;
+    height: 245px;
+    border: solid 10px rgba(246, 232, 190, 0.587);
+    border-radius: 10px;
+    padding-top: 5px;
+    background-image: linear-gradient(to top, #d299c2b0 0%, #fef9d7cf 100%);
+}
+
+.weather-forecast-table {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 10px;
+    border-collapse: collapse;
+}
+
+.theadtable {
+    background-color: #ba9a66;
+    border-radius: 15px;
+}
+
+.weather-forecast-table>tbody>tr>td {
+    width: 15%;
+    border-bottom: 1px solid;
+}
+
+.phototable {
+    width: 450px;
+    height: 250px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
+    border: solid 10px #80808020;
+    border-radius: 10px;
+}
+
+.phototable img {
+    width: 110%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
+}
+
+.phototable .photosummer {
+    position: relative;
+    animation: rotate 10s linear 5s infinite;
+}
+
+.phototable .photopathway {
+    position: absolute;
+    top: 0;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+
+    50% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+
+    59.99999% {
+        transform: rotate(45deg) scale(3);
+        opacity: 0;
+        z-index: 1;
+    }
+
+    60% {
+        opacity: 0;
+        z-index: -1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.weatherfield>.city-select>h3 {
+    color: #ffecc9;
+    margin-left: 5px;
+    margin-top: 45px;
+}
+
+.weatherfield>.city-select>#city {
+    margin-left: 5px;
+    background-color: #f5dba4;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #562705;
+    font-weight: bold;
+    margin-right: 130px;
+}
+
+.btnweather {
+    border: 0 solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    outline: 2px solid;
+    outline-color: rgba(255, 255, 255, .5);
+    outline-offset: 0px;
+    text-shadow: none;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+    border-radius: 15px;
+    padding: 10px 20px;
+  } 
+
+.btnweather:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 20px;
+    text-shadow: 1px 1px 2px #427388;
+}
+
+
+
+/* Statistic */
+
+#Statistic {
+    height: 102vh;
+}
+
+.statisticimg {
+    position: absolute;
+    width: 100%;
+    height: 120vh;
+    top: 0px;
+    margin-left: -15px;
+    overflow: hidden;
+}
+
+.statisticimg>img {
+    position: relative;
+    margin-left: -25px;
+}
+
+.statisticfield {
+    position: absolute;
+}
+
+.statisticfield>h2 {
+    color: #ffecc9;
+    margin-left: 20px;
+}
+
+.catascircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: -30px;
+}
+
+.circlestat {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 13px rgba(255, 255, 255, 0.829);
+    background-color: #f243528c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 10px;
+}
+
+.circlestattwo {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 3px rgb(161, 73, 73);
+    background-color: #f2435200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 10px;
+    animation-name: becomebig;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes becomebig {
+    from {
+        width: 60px;
+        height: 60px;
+        border: solid 3px rgb(161, 73, 73);
+    }
+
+    to {
+        width: 115px;
+        height: 115px;
+        border: solid 7px rgba(161, 73, 73, 0.176);
+    }
+}
+
+.iconsvg {
+    height: 20px;
+}
+
+.tornadocircle {
+    margin-left: 130px;
+    margin-top: 5px;
+}
+
+.tempcircle {
+    margin-left: -430px;
+}
+
+.eathquakecircle {
+    margin-left: -100px;
+}
+
+.volcanocircle {
+    margin-left: 130px;
+}
+
+.firecircle {
+    margin-left: -250px;
+}
+
+
+/* What to do */
+
+#WhatToDo {
+    display: flex;
+    flex-direction: column;
+    height: 569vh;
+}
+
+#WhatToDo>.whattodofield>h2 {
+    color: #ffecc9;
+    margin-left: 20px;
+}
+
+.whattodoimg {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    margin-left: -15px;
+    overflow: hidden;
+}
+
+.whattodoimg>img {
+    position: relative;
+    margin-left: -25px;
+}
+
+.hide {
+    margin-top: -10px;
+}
+
+.whattodofield {
+    position: absolute;
+    width: 100%;
+}
+
+.whattodoitem {
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffffb0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 10px;
+}
+
+.cataclism {
+    display: block;
+    width: 50%;
+    text-align: left;
+    padding: 10px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    background-color: #7f577285;
+    color: #ffffff;
+    transition: all 2s ease;
+}
+
+.cataclism>h3 {
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.cataclism:hover {
+    background-color: #ddc4d685;
+}
+
+.cataclismDescript {
+    display: none;
+    margin-left: 72px;
+    color: rgb(255, 255, 255);
+    width: 70%;
+    text-align: justify;
+}
+
+.cataclismDescript>a {
+    color: #f8cafb;
+}
+
+/* Send photo */
+
+#SendInfo {
+    height: 102vh;
+}
+
+.sendinfoimg {
+    position: absolute;
+    width: 100%;
+    height: 120vh;
+    top: 0px;
+    margin-left: -15px;
+    overflow: hidden;
+}
+
+.sendinfoimg>img {
+    margin-left: -25px;
+}
+
+
+h2 {
+    margin-top: 70px;
+    color: #4e3b36;
+}
+
+.sendwithphoto {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.sendphoto {
+    width: 50%;
+}
+
+.sendphotofield {
+    border-radius: 8px;
+    background-color: #b0b1b494;
+    color: #4e3b36;
+    border: solid 2px #a7a7bc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.widtharea {
+    width: 400px;
+}
+
+/* Button photos send*/
+
+.btnSendPhoto {
+    color: #fff;
+    padding: 15px 25px;
+    margin: 20px;
+    margin-bottom: 10px;
+    background-color: #94c9c9;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+#brthday,
+#mssage {
+    width: 403px;
+}
+
+#cntry {
+    width: 408px;
+}
+
+
+
+
+/* Footer */
+
+footer {
+    width: 100%;
+    color: #250546c0;
+    background-color: #b793de70;
+    text-align: center;
+    z-index: 999;
+    bottom: 0;
+}
+
+footer>.contactus>button {
+    color: #4538aba5;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: #d6b1ce;
+    color: #3a2f8d;
+    text-shadow: 1px 1px #fdf7d5;
+    font-weight: bold;
+    border: 1px;
+}
+
+footer>.contactus>button:hover {
+    background-color: #ece9ec;
+    transition: 1s linear;
+}
+
+.moreinfo>h2 {
+    margin: 10px;
+    margin-top: 0px;
+    font-size: 1.2em;
+}
+
+.hidden {
+    display: block;
+}
+
+/* Footer icons */
+
+.icon-bar {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    padding-bottom: 10px;
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: #dfeaea;
+    font-size: 0.8em;
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 50%;
+}
+
+.icon-bar i {
+    padding: 9px;
+}
+
+#fb {
+    padding: 9px 12px;
+}
+
+.icon-bar a {
+    background-color: rgb(187 0 0 / 42%);
+}
+
+.youtube:hover {
+    background: #bb0000;
+    color: white;
+}
+
+.facebook:hover {
+    background: #3b5998;
+    color: white;
+}
+
+.twitter:hover {
+    background: #55acee;
+    color: white;
+}
+
+.google:hover {
+    background: #007bb5;
+    color: white;
+}
