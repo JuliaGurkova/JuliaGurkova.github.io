@@ -140,7 +140,7 @@ header>nav>ul>li {
 /* Weather forecast */
 
 #TodaysWeather {
-height: 102vh;
+    height: 102vh;
 }
 
 .weatherimg {
@@ -277,7 +277,7 @@ height: 102vh;
     transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
     border-radius: 15px;
     padding: 10px 20px;
-  } 
+}
 
 .btnweather:hover {
     border: 1px solid;
@@ -399,7 +399,7 @@ height: 102vh;
 #WhatToDo {
     display: flex;
     flex-direction: column;
-    height: 569vh;
+    height: 586vh;
 }
 
 #WhatToDo>.whattodofield>h2 {
@@ -572,13 +572,12 @@ footer {
     text-align: center;
     z-index: 999;
     bottom: 0;
+    padding-top: 15px;
 }
 
-footer>.contactus>button {
+#btncontactus {
+    text-decoration: none;
     color: #4538aba5;
-    padding-top: 10px;
-    margin-top: 10px;
-    margin-bottom: 5px;
     text-align: center;
     border-radius: 10px;
     padding: 7px;
@@ -589,14 +588,13 @@ footer>.contactus>button {
     border: 1px;
 }
 
-footer>.contactus>button:hover {
+#btncontactus:hover {
     background-color: #ece9ec;
     transition: 1s linear;
 }
 
 .moreinfo>h2 {
     margin: 10px;
-    margin-top: 0px;
     font-size: 1.2em;
 }
 
