@@ -210,6 +210,9 @@ async function contuctSubmit(event) {
 
 	if (status === 200) {
 		onSuccess(event.target)
+        const currentUrl = window.location.protocol + '//' + window.location.host;
+		location.replace(currentUrl + '../mainpage/index_forphoto.html')
+		return { status: 200 }
 	} else {
 		onError(error)
 	}
@@ -222,11 +225,9 @@ photosForm.addEventListener('submit', contuctSubmit)
 // Send data
 
 async function sendData(data) {
-	return await fetch('/api/apply/', {
-		method: 'POST',
-		headers: { 'Content-Type': 'multipart/form-data' },
-		body: data,
-	})
+	return await fetch('https://jsonplaceholder.typicode.com/todos/1')
+	.then(response => response.json())
+	.then(json => console.log(json))
 }
 
 

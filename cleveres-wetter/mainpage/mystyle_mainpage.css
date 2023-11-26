@@ -551,6 +551,10 @@ h2 {
     cursor: pointer;
 }
 
+.btnSendPhoto:hover {
+    background-color: #bfdada;
+}
+
 #brthday,
 #mssage {
     width: 403px;
