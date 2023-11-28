@@ -130,22 +130,22 @@ const fetchBremenData = () => fetch(getForecastUrlForCity(cities.Bremen))
     .then(getDailyForecast)
     .then(displayData)
 
-    const fetchBerlinData = () => fetch(getForecastUrlForCity(cities.Berlin))
+const fetchBerlinData = () => fetch(getForecastUrlForCity(cities.Berlin))
     .then(response => response.json())
     .then(getDailyForecast)
     .then(displayData)
 
-    const fetchLübeckData = () => fetch(getForecastUrlForCity(cities.Lübeck))
+const fetchLübeckData = () => fetch(getForecastUrlForCity(cities.Lübeck))
     .then(response => response.json())
     .then(getDailyForecast)
     .then(displayData)
 
-    const fetchKielData = () => fetch(getForecastUrlForCity(cities.Kiel))
+const fetchKielData = () => fetch(getForecastUrlForCity(cities.Kiel))
     .then(response => response.json())
     .then(getDailyForecast)
     .then(displayData)
 
-    const fetchSchwerinData = () => fetch(getForecastUrlForCity(cities.Schwerin))
+const fetchSchwerinData = () => fetch(getForecastUrlForCity(cities.Schwerin))
     .then(response => response.json())
     .then(getDailyForecast)
     .then(displayData)
@@ -196,26 +196,26 @@ function toShow(id) {
 // Get data
 
 function getDataForm(formNode) {
-	return new FormData(formNode)
+    return new FormData(formNode)
 }
 
 async function contuctSubmit(event) {
-	event.preventDefault()
-	const data = getDataForm(event.target)
+    event.preventDefault()
+    const data = getDataForm(event.target)
 
-	Loader()
+    Loader()
 
-	const { status, error } = await sendData(data)
-	Loader()
+    const { status, error } = await sendData(data)
+    Loader()
 
-	if (status === 200) {
-		onSuccess(event.target)
+    if (status === 200) {
+        onSuccess(event.target)
         const currentUrl = window.location.protocol + '//' + window.location.host;
-		location.replace(currentUrl + '../mainpage/index_forphoto.html')
-		return { status: 200 }
-	} else {
-		onError(error)
-	}
+        location.replace(currentUrl + '../mainpage/index_forphoto.html')
+        return { status: 200 }
+    } else {
+        onError(error)
+    }
 }
 
 const photosForm = document.getElementById('sendphotoform')
@@ -225,42 +225,71 @@ photosForm.addEventListener('submit', contuctSubmit)
 // Send data
 
 async function sendData(data) {
-	return await fetch('https://jsonplaceholder.typicode.com/todos/1')
-	.then(response => response.json())
-	.then(json => console.log(json))
+    return await fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(json => console.log(json))
 }
 
 
 // Sending...
 
 function Loader() {
-	const loader = document.getElementById('loader')
-	loader.classList.toggle('hidden')
+    const loader = document.getElementById('loader')
+    loader.classList.toggle('hidden')
 }
 
 function onSuccess(formNode) {
-	alert('Ihre Bewerbung wurde versendet!')
-	formNode.classList.toggle('hidden')
+    alert('Ihre Bewerbung wurde versendet!')
+    formNode.classList.toggle('hidden')
 }
 
 // Error
 
 function onError(error) {
-	alert(error.message)
+    alert(error.message)
 }
 
 // Check Validity
 
 function checkValidity(event) {
-	const formNode = event.target.form
-	const isValid = formNode.checkValidity()
+    const formNode = event.target.form
+    const isValid = formNode.checkValidity()
 
-	formNode.querySelector('button').disabled = !isValid
+    formNode.querySelector('button').disabled = !isValid
 }
 
 photosForm.addEventListener('input', checkValidity)
 
 
+// Get Countries
+
+const getCountries = async () => {
+    // debugger
+    try {
+        const responce = await fetch('https://restcountries.com/v3.1/all');
+        const datal = await responce.json();
+        console.log(datal)
+
+        const countryTag = document.getElementById('cntry')
+
+        datal.forEach(element => {
+            const option = document.createElement('option');
+            option.value = element.name.common;
+            option.textContent = element.name.common;
+            countryTag.appendChild(option);
+        });
+
+        if (!responce.ok) {
+            throw new Error('something gone wrong')
+        }
+    } catch (error) {
+        console.log(error.message)
+    }
+
+
+}
+
+getCountries()
 
 
 
