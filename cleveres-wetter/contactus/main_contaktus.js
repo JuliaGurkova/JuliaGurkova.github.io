@@ -4,22 +4,36 @@ function getDataForm(formNode) {
 	return new FormData(formNode)
 }
 
+// Send data
+
+async function sendData(data) {
+	return fetch('https://jsonplaceholder.typicode.com/posts', {
+		method: 'POST',
+		headers: { 'Content-Type': 'multipart/form-data' },
+		body: data,
+	});
+}
+
+
 async function contuctSubmit(event) {
-	event.preventDefault()
-	const data = getDataForm(event.target)
+	try {
+		event.preventDefault()
+		const data = getDataForm(event.target)
+		Loader()
 
-	Loader()
+		const response = await sendData(data);			
+		Loader()		
 
-	const { status, error } = await sendData(data)
-	Loader()
-
-	if (status === 200) {
-		onSuccess(event.target)
-		const currentUrl = window.location.protocol + '//' + window.location.host;
-		location.replace(currentUrl + '../contactus/index_contsend.html')
-		return { status: 200 }
-	} else {
-		onError(error)
+		if (response.status === 200 || response.status === 201) {
+			onSuccess(event.target)
+			const currentUrl = window.location.protocol + '//' + window.location.host;
+			location.replace(currentUrl + '/contactus/index_contsend.html')
+			return { status: 200 }
+		} else {
+			onError("Something is wrong!");
+		}
+	} catch (error) {		
+		onError(error.message)
 	}
 }
 
@@ -27,13 +41,6 @@ const contactusForm = document.getElementById('contactusform')
 contactusForm.addEventListener('submit', contuctSubmit)
 
 
-// Send data
-
-async function sendData(data) {
-	return await fetch('https://jsonplaceholder.typicode.com/todos/1')
-		.then(response => response.json())
-		.then(json => console.log(json))
-}
 
 
 // Sending...
@@ -50,8 +57,8 @@ function onSuccess(formNode) {
 
 // Error
 
-function onError(error) {
-	alert(error.message)
+function onError(message) {
+	alert(message)
 }
 
 // Check Validity
